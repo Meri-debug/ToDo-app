@@ -1,12 +1,133 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Todo-list</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <title>To do</title>
 </head>
+
 <body>
-    
+    <!-- Header -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="/images/placeanimagehere" width="30" height="30" class="d-inline-block align-top" alt="">
+            to do
+        </a>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-2">
+                <!-- 1 of 3 -->
+            </div>
+            <div class="col-md-auto">
+                <!-- <p class="text-center">Add an item.</p> -->
+                <form>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Add an item</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Go to gym.">
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline1"
+                                class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline1">Today</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1"
+                                class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2">Tomorrow</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadioInline3" name="customRadioInline3"
+                                    class="custom-control-input">
+                                <label class="custom-control-label" for="customRadioInline1">Forget it</label>
+                            </div>
+                    </div>
+                </form>
+                </p>
+
+                <button type="button" class="btn btn-outline-dark btn-lg">+</button>
+
+            </div>
+            <div class="col col-lg-2">
+                <!-- 3 of 3 -->
+            </div>
+        </div>
+
+
+        <!-- List items -->
+        <div class="container my-4">
+
+            <p class="font-weight-light">Donec rutrum pulvinar nisi ac ornare. Donec sed dapibus turpis. Sed vehicula
+                magna non mauris eleifend imperdiet. Donec vitae hendrerit augue, vitae facilisis leo. Morbi ac erat at
+                mi blandit aliquam. Pellentesque sit amet risus at urna tristique feugiat. Aliquam lectus nisi, lobortis
+                sit amet nisl vitae, placerat consequat nisi. Donec purus lacus, imperdiet in leo sit amet, condimentum
+                sodales massa.
+            </p>
+
+
+            <hr>
+
+            <p class="font-weight-bold">My to do</p>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <!-- Default checked -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="check1" checked>
+                        <label class="custom-control-label" for="check1">To do item 01</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <!-- Default checked -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="check2">
+                        <label class="custom-control-label" for="check2">To do item 02</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <!-- Default checked -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="check3" checked>
+                        <label class="custom-control-label" for="check3">To do item 03</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <!-- Default checked -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="check4" checked>
+                        <label class="custom-control-label" for="check4">To do item 04</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <!-- Default checked -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="check5">
+                        <label class="custom-control-label" for="check5">To do item 05</label>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 </body>
-</html>
