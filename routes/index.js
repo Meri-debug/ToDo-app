@@ -40,8 +40,7 @@ router.get('/api/list', (req, res) => {
     list = [];
     res.send('Could not find any entries on initial load')
   }
-  res.send(list);
-  res.status(200).send();
+  res.status(200).send(list);
 })
 
 
@@ -78,10 +77,11 @@ router.post('/api/list', function(req, res, next) {
   const newitem = {
     id: uuid(),
     title: req.body.title,
-    deadline: req.body.time,
+    deadline: req.body.deadline,
     completed: req.body.completed,
     priority: req.body.priority
   };
+
   list.push(newitem);
   console.log(list);
   

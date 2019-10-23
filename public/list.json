@@ -11,7 +11,7 @@
     "title": "Kaarlen Synttärit",
     "deadline": "11.09.1995",
     "completed": true,
-    "priority": "medium"
+    "priority": "ultra high"
   },
   {
     "id": 3,
@@ -21,8 +21,15 @@
     "priority": "low"
   },
   {
-    "id": "4785d0cd-b7ac-44e1-b767-4799296c8445",
-    "title": "VIILIÄ",
+    "id": "38ba9626-68b3-4506-884a-0514e410401c",
+    "title": "kak",
+    "completed": false,
+    "priority": "high"
+  },
+  {
+    "id": "a18a1e33-967e-47ec-bf23-ab1743aad522",
+    "title": "as",
+    "deadline": "2019-10-10",
     "completed": false,
     "priority": "high"
   }
