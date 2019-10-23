@@ -22,7 +22,7 @@ function getTodos() {
                 // const deadLine = todo.time; // need correct API values
                 const status = todo.completed; // need correct API values
                 const todoId = todo.id;
-                id.push(todoId);
+
                 
                 var node = document.createElement("LI");
                 node.classList.add("list-group-item");
