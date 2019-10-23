@@ -3,6 +3,7 @@ const toDoUl = document.getElementById("todoul");
 let titleInput = document.getElementById("titleinput");
 let statusInput = document.getElementById("status");
 let addButton = document.getElementById("addbutton");
+let radioInput = document.querySelector('input[name="radiobtn"]')
 // let radioInput = document.querySelector('input[name="radiobtn"]:checked').value;
 
 // postTodo function on click
@@ -21,12 +22,13 @@ function getTodos() {
                 // const deadLine = todo.time; // need correct API values
                 const status = todo.completed; // need correct API values
                 const todoId = todo.id;
+                id.push(todoId);
                 
                 var node = document.createElement("LI");
                 node.classList.add("list-group-item");
 
                 node.innerHTML =
-                    `
+                `
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="check${idCounter}">
                     <label class="custom-control-label" for="check${idCounter}">${title}</label>
@@ -42,7 +44,7 @@ function getTodos() {
                         </span>
                     </div>
                 </div>
-            `
+                `
                 toDoUl.appendChild(node);
 
                 document.getElementById('mod' + todoId).addEventListener('click', putTodo);
@@ -57,6 +59,8 @@ function getTodos() {
 // POST a new todo to server
 function postTodo() {
     let dateInput = document.getElementById("dateinput");
+
+    // let radioInput = document.querySelector('input[name="radiobtn"]:checked')
 
     let title = titleInput.value;
     let deadLine = dateInput.value;
@@ -76,12 +80,13 @@ function postTodo() {
     }).then(function (res) {
         res.json()
     })
-        .then((data) => console.log(data))
+        //.then((data) => console.log(data))
         .catch((err) => console.log(err));
     
     dateInput.value = "";
-    title.value = "";
-    radio = false;
+    titleInput.value = "";
+    radioInput.value = false;
+    getTodos();
 }
 
 // DELETE a todo
