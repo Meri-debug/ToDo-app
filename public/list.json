@@ -1,12 +1,5 @@
 [
   {
-    "id": 1,
-    "title": "Joo",
-    "deadline": "21.11.2019",
-    "completed": true,
-    "priority": "high"
-  },
-  {
     "id": 2,
     "title": "Kaarlen Synttärit",
     "deadline": "11.09.1995",
