@@ -1,20 +1,20 @@
-const toDoArea = document.getElementById("testdiv"); // need correct ID name from HTML file
+const toDoUl = document.getElementById("todoul");
 
 let titleInput = document.getElementById("titleinput");
 let dateInput = document.getElementById("dateinput");
 let statusInput = document.getElementById("status");
 let addButton = document.getElementById("addbutton");
 
-
 // postTodo function on click
 addButton.addEventListener("click", postTodo);
 
 // GET all the todo items from the server
 function getTodos() {
-    fetch('https://jsonplaceholder.typicode.com/todos') // demodata
+    fetch('/api/list') // demodata
     .then(response => response.json())
     .then(function(json) {
-        let todoItem = '';
+
+        let idCounter = 1;
 
         json.forEach((todo) => {
             const title = todo.title; // need correct API values
@@ -22,14 +22,19 @@ function getTodos() {
             const status = todo.completed; // need correct API values
             const todoId = todo.id;
 
-            todoItem +=
-                `<div class="toDoCard" id="${todoId}">
-                    <p><strong>Task:</strong> ${title}</p> ` +
-                    // <p><strong>Deadline:</strong> ${deadLine}</p>
-                    `<p><strong>In progress?</strong> ${status}</p>
-                </div>`
+            var node = document.createElement("LI");
+            node.classList.add("list-group-item");
+            node.innerHTML = 
+            `
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="check${idCounter}">
+                    <label class="custom-control-label" for="check${idCounter}">${title}</label>
+                </div>
+            `
 
-            toDoArea.innerHTML = todoItem;
+            toDoUl.appendChild(node);
+
+            idCounter += 1;
         });
     });
 }
@@ -40,8 +45,6 @@ function postTodo() {
     let title = titleInput.value;
     let deadLine = dateInput.value;
     let status = statusInput.value;
-
-    //console.log(status);
 
     let newToDo = {
         title: title,
