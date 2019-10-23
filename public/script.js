@@ -5,13 +5,12 @@ let dateInput = document.getElementById("dateinput");
 let statusInput = document.getElementById("status");
 let addButton = document.getElementById("addbutton");
 
-
 // postTodo function on click
 addButton.addEventListener("click", postTodo);
 
 // GET all the todo items from the server
 function getTodos() {
-    fetch('https://jsonplaceholder.typicode.com/todos') // demodata
+    fetch('/api/list') // demodata
     .then(response => response.json())
     .then(function(json) {
 
@@ -36,34 +35,6 @@ function getTodos() {
             toDoUl.appendChild(node);
 
             idCounter += 1;
-
-            /*
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="check1" checked>
-                <label class="custom-control-label" for="check1">Example todo item</label>
-            </div>
-            todoItem +=
-                `<div class="toDoCard" id="${todoId}">
-                    <p><strong>Task:</strong> ${title}</p> ` +
-                    // <p><strong>Deadline:</strong> ${deadLine}</p>
-                    `<p><strong>In progress?</strong> ${status}</p>
-                </div>`
-
-                var node = document.createElement("LI");                 // Create a <li> node
-                var textnode = document.createTextNode("Water");         // Create a text node
-                node.appendChild(textnode);                              // Append the text to <li>
-                document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList"
-
-                <li class="list-group-item">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="check1" checked>
-                        <label class="custom-control-label" for="check1">To do item 01</label>
-                    </div>
-                </li>
-
-            toDoArea.innerHTML = todoItem;
-            */
         });
     });
 }
@@ -74,8 +45,6 @@ function postTodo() {
     let title = titleInput.value;
     let deadLine = dateInput.value;
     let status = statusInput.value;
-
-    //console.log(status);
 
     let newToDo = {
         title: title,
