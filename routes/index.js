@@ -77,7 +77,7 @@ router.post('/api/list', function(req, res, next) {
   const newitem = {
     id: uuid(),
     title: req.body.title,
-    deadline: req.body.time,
+    deadline: req.body.deadline,
     completed: req.body.completed,
     priority: req.body.priority
   };
