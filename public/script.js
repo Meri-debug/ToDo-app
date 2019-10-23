@@ -1,10 +1,9 @@
 const toDoUl = document.getElementById("todoul");
 
 let titleInput = document.getElementById("titleinput");
-let dateInput = document.getElementById("dateinput");
 let statusInput = document.getElementById("status");
 let addButton = document.getElementById("addbutton");
-let radioInput = document.querySelector('input[name="radiobtn"]:checked');
+// let radioInput = document.querySelector('input[name="radiobtn"]:checked').value;
 
 // postTodo function on click
 addButton.addEventListener("click", postTodo);
@@ -57,10 +56,11 @@ function getTodos() {
 
 // POST a new todo to server
 function postTodo() {
+    let dateInput = document.getElementById("dateinput");
 
     let title = titleInput.value;
     let deadLine = dateInput.value;
-    let radio = radioInput.value;
+    let radio = document.querySelector('input[name="radiobtn"]:checked').value;
 
     let newToDo = {
         title: title,
@@ -69,19 +69,19 @@ function postTodo() {
         priority: radio
     };
 
-    console.log(newToDo)
-
-    /*
-    fetch('https://jsonplaceholder.typicode.com/todos', {
+    fetch('/api/list', {
         method: 'POST',
-        headers: new Headers(),
+        headers: new Headers({ 'Content-type': 'application/json' }),
         body: JSON.stringify(newToDo)
     }).then(function (res) {
         res.json()
     })
         .then((data) => console.log(data))
         .catch((err) => console.log(err));
-    */
+    
+    dateInput.value = "";
+    title.value = "";
+    radio = false;
 }
 
 // DELETE a todo
