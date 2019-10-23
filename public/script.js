@@ -23,7 +23,6 @@ function getTodos() {
                 const status = todo.completed; // need correct API values
                 const todoId = todo.id;
 
-                
                 var node = document.createElement("LI");
                 node.classList.add("list-group-item");
 

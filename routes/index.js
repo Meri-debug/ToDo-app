@@ -60,6 +60,7 @@ router.delete('/api/list/:id', (req, res) => {
       list.splice(i, 1);
       res.json({ msg: "deleted: " + req.params.id })
       saveToList();
+      console.log(list);
       return;
     }
   }
@@ -67,8 +68,6 @@ router.delete('/api/list/:id', (req, res) => {
 })
 function saveToList() {
   fs.writeFileSync(__dirname+'/../public/list.json', JSON.stringify(list, null, 2), () => {
-    console.log("list saved")
-    console.log(list)
   })
 }
 
