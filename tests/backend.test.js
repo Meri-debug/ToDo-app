@@ -31,7 +31,6 @@ test("Testataan, että GET request toimii", (done) => {
         });
 });
 
-
 test("Testataan, että DELETE request toimii", (done) => {
     return request(app)
     .delete('/api/list/:id').then(response => {
