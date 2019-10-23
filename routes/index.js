@@ -82,6 +82,7 @@ router.post('/api/list', function(req, res, next) {
     completed: req.body.completed,
     priority: req.body.priority
   };
+
   list.push(newitem);
   console.log(list);
   
