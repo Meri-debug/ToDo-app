@@ -19,5 +19,11 @@
     "deadline": "1.11.2014",
     "completed": false,
     "priority": "low"
+  },
+  {
+    "id": "ad1c5b8f-2723-41ed-98c7-51081a2b265d",
+    "title": "POST TEST",
+    "completed": true,
+    "priority": "high"
   }
 ]

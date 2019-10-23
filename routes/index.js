@@ -82,16 +82,13 @@ router.post('/api/list', function(req, res, next) {
     completed: req.body.completed,
     priority: req.body.priority
   };
-
   list.push(newitem);
   console.log(list);
-
+  
   const jsonList = JSON.stringify(list, null, 2);
-
   fs.writeFileSync(__dirname+'/../public/list.json', jsonList, function(err) {
     if (err) throw err;
   });
-
   res.status(201);
   res.json(list);
 })
@@ -107,9 +104,7 @@ router.put('/api/list/:id', function(req, res, next) {
   keys.forEach(key => {
     item[key] = req.body[key];
   });
-
   list[index] = item;
-
   res.status(200);
   res.json(list[index]);
 });
