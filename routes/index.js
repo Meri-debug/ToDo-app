@@ -40,8 +40,7 @@ router.get('/api/list', (req, res) => {
     list = [];
     res.send('Could not find any entries on initial load')
   }
-  res.send(list);
-  res.status(200).send();
+  res.status(200).send(list);
 })
 
 

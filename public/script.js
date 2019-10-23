@@ -89,8 +89,9 @@ function postTodo() {
 
 
 function putTodo(clicked_id) {
-    const id = clicked_id.substring(3);
-    console.log(id);
+    const click = clicked_id;
+    const id = clicked_id.toString().substring(3);
+    console.log(id)
 
     fetch('http://localhost:3000/api/list/', modTodo)
         .then((res) => res.json())
