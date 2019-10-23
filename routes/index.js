@@ -28,9 +28,51 @@ var list = [
 ]
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
+// Get pyyntö, joka hakee listan
+router.get('/api/list', (req, res) => {
+  try {
+    var updateList = fs.readFileSync(__dirname + '/../public/list.json');
+    list = JSON.parse(updateList);
+  } catch (error) {
+    list = [];
+    res.send('Could not find any entries on initial load')
+  }
+  res.send(list);
+  res.status(200).send();
+})
+
+
+router.get('/api/list/:id', (req, res) => {
+  const itemFound = list.some(listItem => listItem.id === parseInt(req.params.id));
+
+  if (itemFound) {
+    res.json(list.filter(listItem => listItem.id === parseInt(req.params.id)));
+  } else {
+    res.status(400).json({ msg: `No list item with the id of ${req.params.id}` });
+  }
+});
+
+router.delete('/api/list/:id', (req, res) => {
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].id == req.params.id) {
+      list.splice(i, 1);
+      res.json({ msg: "deleted: " + req.params.id })
+      saveToList();
+      return;
+    }
+  }
+  res.json({ msg: "Could not find " });
+})
+function saveToList() {
+  fs.writeFileSync(__dirname+'/../public/list.json', JSON.stringify(list, null, 2), () => {
+    console.log("list saved")
+    console.log(list)
+  })
+}
+
 
 router.post('/api/list', function(req, res, next) {
   const newitem = {

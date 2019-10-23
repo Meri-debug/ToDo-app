@@ -7,13 +7,6 @@
     "priority": "high"
   },
   {
-    "id": 2,
-    "title": "Kaarlen Synttärit",
-    "deadline": "11.09.1995",
-    "completed": true,
-    "priority": "ultra high"
-  },
-  {
     "id": 3,
     "title": "Plebeiji",
     "deadline": "1.11.2014",

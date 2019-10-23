@@ -23,3 +23,19 @@ test('/api/list PUT request works', (done) => {
       done();
     });
 });
+
+test("Testataan, että GET request toimii", (done) => {
+    return request(app)
+        .get('/api/list').then(response => {
+            expect(response.statusCode).toBe(200);
+            done();
+        });
+});
+
+test("Testataan, että DELETE request toimii", (done) => {
+    return request(app)
+    .delete('/api/list/:id').then(response => {
+        expect(response.statusCode).toBe(200);
+        done();
+    });
+});
