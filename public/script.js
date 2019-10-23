@@ -81,6 +81,7 @@ function postTodo() {
     dateInput.value = "";
     titleInput.value = "";
     radioInput.value = false;
+    $('#todoul').empty();
     getTodos();
 }
 

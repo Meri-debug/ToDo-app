@@ -1,19 +1,5 @@
 [
   {
-    "id": 2,
-    "title": "Kaarlen Synttärit",
-    "deadline": "11.09.1995",
-    "completed": true,
-    "priority": "ultra high"
-  },
-  {
-    "id": 3,
-    "title": "Plebeiji",
-    "deadline": "1.11.2014",
-    "completed": false,
-    "priority": "low"
-  },
-  {
     "id": "808c3e73-a8ea-4ac5-ab66-5284f806ded4",
     "title": "YSSIPÄÄ",
     "completed": false,
@@ -24,12 +10,6 @@
     "title": "opettele aakkoset",
     "completed": false,
     "priority": "medium"
-  },
-  {
-    "id": "6ee37172-ba96-443a-8a7c-e8251ea9954e",
-    "title": "osta haarukka",
-    "completed": false,
-    "priority": "high"
   },
   {
     "id": "106e6b4b-b743-4a9e-b533-094b10f80199",
