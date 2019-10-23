@@ -5,8 +5,11 @@ let dateInput = document.getElementById("dateinput");
 let statusInput = document.getElementById("status");
 let addButton = document.getElementById("addbutton");
 
+
+// postTodo function on click
 addButton.addEventListener("click", postTodo);
 
+// GET all the todo items from the server
 function getTodos() {
     fetch('https://jsonplaceholder.typicode.com/todos') // demodata
     .then(response => response.json())
@@ -31,6 +34,7 @@ function getTodos() {
     });
 }
 
+// POST a new todo to server
 function postTodo() {
 
     let title = titleInput.value;
@@ -55,10 +59,9 @@ function postTodo() {
     })
         .then((data) => console.log(data))
         .catch((err) => console.log(err));
-
-    getTodos();
 }
 
+// GET all todos on page load
 getTodos();
 
 
