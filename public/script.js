@@ -95,7 +95,7 @@ function delTodo() {
 
 function putTodo() {
     console.log(id);
-
+    console.log('Toimi pls')
 }
 
 
