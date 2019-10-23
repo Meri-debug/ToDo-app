@@ -19,10 +19,11 @@ function getTodos() {
             let idCounter = 1;
 
             json.forEach((todo) => {
-                const title = todo.title; // need correct API values
-                // const deadLine = todo.time; // need correct API values
-                const status = todo.completed; // need correct API values
+                const title = todo.title;
+                const deadline = todo.deadline;
+                const status = todo.completed; 
                 const todoId = todo.id;
+                const priority = todo.priority;
 
                 var node = document.createElement("LI");
                 node.classList.add("list-group-item");
@@ -32,6 +33,8 @@ function getTodos() {
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="check${idCounter}">
                     <label class="custom-control-label" for="check${idCounter}">${title}</label>
+                    <p>Deadline: ${deadline}</p>
+                    <p>Priority: ${priority}</p>
                     <div class="text-right">
                         <span class="col-sm-1">
                                 <button type="button" class="btn btn-outline-dark btn-sm" id="mod${todoId}"
@@ -94,18 +97,6 @@ function putTodo(clicked_id) {
     const id = clicked_id.toString().substring(3);
     console.log(id)
 
-    let dateInput = document.getElementById("dateinput");
-
-    let title = titleInput.value;
-    let deadLine = dateInput.value;
-    let radio = document.querySelector('input[name="radiobtn"]:checked').value;
-
-    let newToDo = {
-        title: title,
-        deadline: deadLine,
-        completed: false,
-        priority: radio
-    };
 
     fetch('http://localhost:3000/api/list/', modTodo)
         .then((res) => res.json())
