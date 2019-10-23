@@ -3,29 +3,14 @@ var router = express.Router();
 const uuid = require('uuid');
 const fs = require('fs');
 
-var list = [
-  {
-    id: 1,
-    title: "Joo",
-    deadline: "21.11.2019",
-    completed: true,
-    priority: "high"
-  },
-  {
-    id: 2,
-    title: "Kaarlen Synttärit",
-    deadline: "11.09.1995",
-    completed: true,
-    priority: "ultra high"
-  },
-  {
-    id: 3,
-    title: "Plebeiji",
-    deadline: "1.11.2014",
-    completed: false,
-    priority: "low"
-  },
-]
+var list = [];
+
+try {
+  var updateList = fs.readFileSync(__dirname + '/../public/list.json');
+  list = JSON.parse(updateList);
+} catch (error) {
+  throw error;
+}
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -33,14 +18,7 @@ router.get('/', function (req, res, next) {
 });
 // Get pyyntö, joka hakee listan
 router.get('/api/list', (req, res) => {
-  try {
-    var updateList = fs.readFileSync(__dirname + '/../public/list.json');
-    list = JSON.parse(updateList);
-  } catch (error) {
-    list = [];
-    res.send('Could not find any entries on initial load')
-  }
-  res.status(200).send(list);
+  res.status(200).json(list);
 })
 
 
