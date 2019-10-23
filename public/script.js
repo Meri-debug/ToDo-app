@@ -4,6 +4,7 @@ let titleInput = document.getElementById("titleinput");
 let dateInput = document.getElementById("dateinput");
 let statusInput = document.getElementById("status");
 let addButton = document.getElementById("addbutton");
+let radioInput = document.querySelector('input[name="radiobtn"]:checked');
 
 // postTodo function on click
 addButton.addEventListener("click", postTodo);
@@ -44,15 +45,18 @@ function postTodo() {
 
     let title = titleInput.value;
     let deadLine = dateInput.value;
-    let status = statusInput.value;
+    let radio = radioInput.value;
 
     let newToDo = {
         title: title,
-        status: status
+        deadline: deadLine,
+        completed: false,
+        priority: radio
     };
 
     console.log(newToDo)
 
+    /*
     fetch('https://jsonplaceholder.typicode.com/todos', {
         method: 'POST',
         headers: new Headers(),
@@ -62,7 +66,12 @@ function postTodo() {
     })
         .then((data) => console.log(data))
         .catch((err) => console.log(err));
+    */
 }
+
+// DELETE a todo
+
+
 
 // GET all todos on page load
 getTodos();
