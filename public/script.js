@@ -11,6 +11,7 @@ addButton.addEventListener("click", postTodo);
 
 // GET all the todo items from the server
 function getTodos() {
+    $('#todoul').empty();
     fetch('/api/list') // demodata
         .then(response => response.json())
         .then(function (json) {
@@ -73,7 +74,8 @@ function postTodo() {
         headers: new Headers({ 'Content-type': 'application/json' }),
         body: JSON.stringify(newToDo)
     }).then(function (res) {
-        res.json()
+        res.json();
+        getTodos();
     })
         //.then((data) => console.log(data))
         .catch((err) => console.log(err));
@@ -81,8 +83,6 @@ function postTodo() {
     dateInput.value = "";
     titleInput.value = "";
     radioInput.value = false;
-    $('#todoul').empty();
-    getTodos();
 }
 
 // DELETE a todo
