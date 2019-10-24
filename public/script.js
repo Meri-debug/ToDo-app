@@ -59,76 +59,85 @@ function getTodos() {
 
                 node.innerHTML =
                     `
-                <div class="custom-control custom-checkbox">
-                <div class="overlay">
-    
-            <div class="col">
-                <!-- This is the form -->
-                <form>
-                    <!-- Input field -->
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Go to gym" id="modtitleinput">
-                        </div>
-                        <!-- Input field with date picker -->
-                        <div class="col">
-                            <input type="date" name="duedate" max="3000-12-31" min="1000-01-01" class="form-control"
-                                id="moddateinput">
-                        </div>
-                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <div class="overlay">
 
-                    <!-- Radio buttons -->
-                    <div class="form-group">
-                         
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio4" name="radiobtn2" value="high">
-                            <label class="custom-control-label text-white" for="customRadio4">High priority</label>
+                            <div class="col">
+                                <!-- This is the form -->
+                                <form>
+                                    <!-- Input field -->
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="Go to gym" id="modtitleinput">
+                                        </div>
+                                        <!-- Input field with date picker -->
+                                        <div class="col">
+                                            <input type="date" name="duedate" max="3000-12-31" min="1000-01-01" class="form-control" id="moddateinput">
+                                        </div>
+                                    </div>
+
+                                    <!-- Radio buttons -->
+                                    <div class="form-group">
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="customRadio4" name="radiobtn2" value="high">
+                                            <label class="custom-control-label text-white" for="customRadio4">High priority</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="customRadio5" name="radiobtn2" value="medium">
+                                            <label class="custom-control-label text-white" for="customRadio5">Medium priority</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="customRadio6" name="radiobtn2" value="low">
+                                            <label class="custom-control-label text-white" for="customRadio6">Low priority</label>
+                                        </div>
+
+                                    </div>
+                                </form>
+
+                                <!-- This is the submit button -->
+                                <input class="btn btn-light btn-lg btn-block" type="button" onclick="modTodo()" value="save">
+                            </div>
+
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio5" name="radiobtn2" value="medium">
-                            <label class="custom-control-label text-white" for="customRadio5">Medium priority</label>
+
+                        <div class="row">
+                            <div class="col">
+                                <input type="checkbox" class="custom-control-input" id="chk${todoId}" onclick="checkbox(this.id)">
+                                <label class=" slightpadding custom-control-label" for="chk${todoId}">${title}</label>
+                                <p class="nopadding text-muted">Deadline: ${deadline}</p>
+                                <p class="nopadding text-muted">Priority: ${priority}</p> 
+                            </div>
+                            <div class="col">
+                                <div class="text-right ontheright">
+                                    <span class="col-sm-1">
+                                        <button type="button" class="btn btn-outline-dark btn-sm" id="mod${todoId}" value="2" onClick="on(this.id)">Modify</button>
+                                    </span>
+                                    <span class="col-sm-offset-10 col-sm-1">
+                                        <!-- This is the delete button -->
+                                        <button type="button" class="btn btn-outline-danger btn-sm" id="del${todoId}" value="1" onClick="delTodo(this.id)">Delete</button>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio6" name="radiobtn2" value="low">
-                            <label class="custom-control-label text-white" for="customRadio6">Low priority</label>
-                        </div> 
+
                         
-                    </div>
-                </form>
+                        
+                        
 
-                <!-- This is the submit button -->
-                <input class="btn btn-light btn-lg btn-block" type="button" onclick="modTodo()" value="save">
-            </div>
-
-                </div>
-                    <input type="checkbox" class="custom-control-input" id="chk${todoId}" onclick="checkbox(this.id)">
-                    <label class="custom-control-label" for="chk${todoId}">${title}</label>
-                    <p>Deadline: ${deadline}</p>
-                    <p>Priority: ${priority}</p>
-                    <div class="text-right">
-                        <span class="col-sm-1">
-                                <button type="button" class="btn btn-outline-dark btn-sm" id="mod${todoId}"
-                                    value="2" onClick="on(this.id)">Modify</button>
-                        </span>
-                            <span class="col-sm-offset-10 col-sm-1">
-                                <!-- This is the delete button -->
-                                <button type="button" class="btn btn-outline-danger btn-sm" id="del${todoId}"
-                                    value="1" onClick="delTodo(this.id)">Delete</button>
-                        </span>
                     </div>
-                </div>
                 `
 
-                $('#todoId').change(function(){
-                    if($(this).is(":checked")) {
-                        console.log("pöö")
-                        $('.changeme').addClass('checked');
-                    } else {
-                        $('.changeme').removeClass('checked');
-                    }
-                });
-
                 toDoUl.appendChild(node);
+
+                // $('#todoId').change(function(){
+                //     if($(this).is(":checked")) {
+                //         console.log("pöö")
+                //         $('.changeme').addClass('checked');
+                //     } else {
+                //         $('.changeme').removeClass('checked');
+                //     }
+                // });
 
                 if (status === "on") {
                     document.getElementById("chk" + todoId).checked = true;

@@ -40,7 +40,6 @@ html {
   z-index: 99;
 }
 
-/*
 input[type=checkbox] + label {
   color: black;
   text-decoration: none;
@@ -50,9 +49,17 @@ input[type=checkbox]:checked + label {
   color: grey;
   text-decoration: line-through;
 } 
-*/
 
-.checked {
+/* .checked {
   color: grey;
   text-decoration: line-through;
+} */
+
+.nopadding {
+  margin: 0;
+  padding: 0;
+}
+
+.slightpadding {
+  padding-bottom: 10px;
 }
