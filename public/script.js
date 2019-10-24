@@ -17,10 +17,12 @@ let serial;
 addButton.addEventListener("click", postTodo);
 
 function on(event) {
+    console.log(event);
     const clicked_id = event.substring(3);
     serial = clicked_id;
     console.log(clicked_id);
     document.querySelector(".overlay").style.display = "block";
+
 }
 
 function off() {
@@ -71,29 +73,29 @@ function getTodos() {
                          
                         <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" class="custom-control-input" id="customRadio4" name="radiobtn2" value="high">
-                            <label class="custom-control-label" for="customRadio4">High priority</label>
+                            <label class="custom-control-label text-white" for="customRadio4">High priority</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" class="custom-control-input" id="customRadio5" name="radiobtn2" value="medium">
-                            <label class="custom-control-label" for="customRadio5">Medium priority</label>
+                            <label class="custom-control-label text-white" for="customRadio5">Medium priority</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" class="custom-control-input" id="customRadio6" name="radiobtn2" value="low">
-                            <label class="custom-control-label" for="customRadio6">Low priority</label>
+                            <label class="custom-control-label text-white" for="customRadio6">Low priority</label>
                         </div> 
                         
                     </div>
                 </form>
 
                 <!-- This is the submit button -->
-                <input class="btn btn-outline-dark btn-lg btn-block" type="button" onclick="modTodo()" value="save">
+                <input class="btn btn-light btn-lg btn-block" type="button" onclick="modTodo()" value="save">
             </div>
 
                 </div>
                     <input type="checkbox" class="custom-control-input" id="check${idCounter}">
                     <label class="custom-control-label" for="check${idCounter}">${title}</label>
-                    <p>Deadline: ${deadline}</p>
-                    <p>Priority: ${priority}</p>
+                    <p class="changeme">Deadline: ${deadline}</p>
+                    <p class="changeme">Priority: ${priority}</p>
                     <div class="text-right">
                         <span class="col-sm-1">
                                 <button type="button" class="btn btn-outline-dark btn-sm" id="mod${todoId}"
@@ -107,6 +109,16 @@ function getTodos() {
                     </div>
                 </div>
                 `
+
+                $('#todoId').change(function(){
+                    if($(this).is(":checked")) {
+                        console.log("pöö")
+                        $('.changeme').addClass('checked');
+                    } else {
+                        $('.changeme').removeClass('checked');
+                    }
+                });
+
                 toDoUl.appendChild(node);
 
                 idCounter += 1;
@@ -188,6 +200,7 @@ getTodos();
 
 // This is scroll top button
 
+/*
 $(document).ready(function(){
     $(window).scroll(function () {
            if ($(this).scrollTop() > 50) {
@@ -208,6 +221,7 @@ $(document).ready(function(){
        $('#back-to-top').tooltip('show');
 
 });
+*/
 
 function delTodo(event) {
     const id = event.substring(3);
