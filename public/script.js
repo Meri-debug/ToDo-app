@@ -50,10 +50,6 @@ function getTodos() {
                 `
                 toDoUl.appendChild(node);
 
-                document.getElementById('mod' + todoId).addEventListener('click', putTodo);
-
-                document.getElementById('del' + todoId).addEventListener('click', delTodo);
-
                 idCounter += 1;
             });
         });
@@ -86,7 +82,7 @@ function postTodo() {
     })
         //.then((data) => console.log(data))
         .catch((err) => console.log(err));
-    
+
     dateInput.value = "";
     titleInput.value = "";
     radioInput.value = false;
@@ -101,10 +97,11 @@ function putTodo(clicked_id) {
     const id = clicked_id.toString().substring(3);
     console.log(id)
 
+
     fetch('http://localhost:3000/api/list/', modTodo)
         .then((res) => res.json())
         .then(data => data.map(post => {
-            
+
         }))
         .catch((err) => console.log(err))
 }
@@ -112,9 +109,21 @@ function putTodo(clicked_id) {
 // GET all todos on page load
 getTodos();
 
-function delTodo(clicked_id) {
-    console.log(clicked_id);
-}
+function delTodo(event) {
+    const id = event.substring(3);
+    console.log(id);
+
+    fetch(`http://localhost:3000/api/list/${id}`, {
+        method: 'DELETE',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ id })
+    })
+        .then(res => res.json())
+        .catch((err) => console.log(err))
+
+        $('#todoul').empty();
+        getTodos();
+};
 
 
 
