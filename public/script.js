@@ -11,6 +11,7 @@ addButton.addEventListener("click", postTodo);
 
 // GET all the todo items from the server
 function getTodos() {
+    $('#todoul').empty();
     fetch('/api/list') // demodata
         .then(response => response.json())
         .then(function (json) {
@@ -18,10 +19,11 @@ function getTodos() {
             let idCounter = 1;
 
             json.forEach((todo) => {
-                const title = todo.title; // need correct API values
-                // const deadLine = todo.time; // need correct API values
-                const status = todo.completed; // need correct API values
+                const title = todo.title;
+                const deadline = todo.deadline;
+                const status = todo.completed; 
                 const todoId = todo.id;
+                const priority = todo.priority;
 
                 var node = document.createElement("LI");
                 node.classList.add("list-group-item");
@@ -31,6 +33,8 @@ function getTodos() {
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="check${idCounter}">
                     <label class="custom-control-label" for="check${idCounter}">${title}</label>
+                    <p>Deadline: ${deadline}</p>
+                    <p>Priority: ${priority}</p>
                     <div class="text-right">
                         <span class="col-sm-1">
                                 <button type="button" class="btn btn-outline-dark btn-sm" id="mod${todoId}"
@@ -77,7 +81,8 @@ function postTodo() {
         headers: new Headers({ 'Content-type': 'application/json' }),
         body: JSON.stringify(newToDo)
     }).then(function (res) {
-        res.json()
+        res.json();
+        getTodos();
     })
         //.then((data) => console.log(data))
         .catch((err) => console.log(err));
@@ -85,7 +90,6 @@ function postTodo() {
     dateInput.value = "";
     titleInput.value = "";
     radioInput.value = false;
-    getTodos();
 }
 
 // DELETE a todo
