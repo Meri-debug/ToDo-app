@@ -80,16 +80,6 @@ router.put('/api/list/:id', function(req, res, next) {
     return item.id == id;
   })[0];
 
-  /* for (let i = 0; i < list.length; i++) {
-    if (list[i].id == req.params.id) {
-      console.log(list[i]);
-      return;
-    }
-  } */
-
-  console.log(item);
-  console.log(req.body.priority);
-
   const index = list.indexOf(item);
 
   const keys = Object.keys(req.body);

@@ -10,7 +10,7 @@ let modTitleInput = document.getElementById("modtitleinput");
 let modStatusInput = document.getElementById("status");
 let modRadioInput = document.querySelector('input[name="radiobtn"]')
 let modDateInput = document.getElementById("moddateinput");
-// let radioInput = document.querySelector('input[name="radiobtn"]:checked').value;
+
 let serial;
 
 // postTodo function on click
@@ -112,13 +112,12 @@ function getTodos() {
                 idCounter += 1;
             });
         });
+
 }
 
 // POST a new todo to server
 function postTodo() {
-
     // let radioInput = document.querySelector('input[name="radiobtn"]:checked')
-
     let title = titleInput.value;
     let deadLine = dateInput.value;
     let radio = document.querySelector('input[name="radiobtn"]:checked').value;
@@ -137,22 +136,31 @@ function postTodo() {
     }).then(function (res) {
         res.json();
         getTodos();
+        dateInput.value = "";
+        titleInput.value = "";
+        document.querySelector('input[name="radiobtn"]:checked').checked = false;
     })
         //.then((data) => console.log(data))
         .catch((err) => console.log(err));
-
-    dateInput.value = "";
-    titleInput.value = "";
-    radioInput.value = false;
 }
 
-// DELETE a todo
+function modTodo(event) {
+    const id = event;
 
-function modTodo() {
     let modTitleInput = document.getElementById("modtitleinput").value;
     // let modStatusInput = document.getElementById("status").value;
-    let modRadioInput = document.querySelector('input[name="radiobtn2"]:checked').value;
+    
+    let modRadioInput;
+    if (document.querySelector('input[name="radiobtn2"]:checked') !== null) {
+        modRadioInput = document.querySelector('input[name="radiobtn2"]:checked').value;
+    }
+
     let modDateInput = document.getElementById("moddateinput").value;
+
+/*     let completed;
+    if (document.getElementById(id) !== null) {
+        completed = document.getElementById(id).value;
+    } */
 
     let newToDo = {
         id: serial,
@@ -190,17 +198,3 @@ function delTodo(event) {
         .catch((err) => console.log(err))
     getTodos();
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
