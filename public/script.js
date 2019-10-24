@@ -16,11 +16,20 @@ let serial;
 // postTodo function on click
 addButton.addEventListener("click", postTodo);
 
-function on(event) {
-    console.log(event);
+//Kaarle || Checkbox passaa ja päivittää oman id:nsä serialiin
+function checkbox(event){
+    updateSerial(event);
+    patch();
+}
+
+function updateSerial(event){
     const clicked_id = event.substring(3);
     serial = clicked_id;
-    console.log(clicked_id);
+    console.log(serial);
+}
+
+function on(event) {
+    updateSerial(event);
     document.querySelector(".overlay").style.display = "block";
 
 }
@@ -29,6 +38,7 @@ function off() {
     document.querySelector(".overlay").style.display = "none";
 }
 
+// Max, Kaarle & muita ollut mukana? 
 // GET all the todo items from the server
 function getTodos() {
     $('#todoul').empty();
@@ -36,14 +46,13 @@ function getTodos() {
         .then(response => response.json())
         .then(function (json) {
 
-            let idCounter = 1;
-
             json.forEach((todo) => {
                 const title = todo.title;
                 const deadline = todo.deadline;
                 const status = todo.completed;
                 const todoId = todo.id;
                 const priority = todo.priority;
+                console.log(status)
 
                 var node = document.createElement("LI");
                 node.classList.add("list-group-item");
@@ -92,10 +101,10 @@ function getTodos() {
             </div>
 
                 </div>
-                    <input type="checkbox" class="custom-control-input" id="check${idCounter}">
-                    <label class="custom-control-label" for="check${idCounter}">${title}</label>
-                    <p class="changeme">Deadline: ${deadline}</p>
-                    <p class="changeme">Priority: ${priority}</p>
+                    <input type="checkbox" class="custom-control-input" id="chk${todoId}" onclick="checkbox(this.id)">
+                    <label class="custom-control-label" for="chk${todoId}">${title}</label>
+                    <p>Deadline: ${deadline}</p>
+                    <p>Priority: ${priority}</p>
                     <div class="text-right">
                         <span class="col-sm-1">
                                 <button type="button" class="btn btn-outline-dark btn-sm" id="mod${todoId}"
@@ -121,7 +130,9 @@ function getTodos() {
 
                 toDoUl.appendChild(node);
 
-                idCounter += 1;
+                if (status === "on") {
+                    document.getElementById("chk" + todoId).checked = true;
+                }
             });
         });
 
@@ -156,6 +167,7 @@ function postTodo() {
         .catch((err) => console.log(err));
 }
 
+//Kaarle & Max
 function modTodo(event) {
     const id = event;
 
@@ -169,10 +181,11 @@ function modTodo(event) {
 
     let modDateInput = document.getElementById("moddateinput").value;
 
-/*     let completed;
-    if (document.getElementById(id) !== null) {
+    let completed;
+    if (document.getElementById(serial) !== null) {
         completed = document.getElementById(id).value;
-    } */
+    }
+    console.log(completed);
 
     let newToDo = {
         id: serial,
@@ -235,3 +248,35 @@ function delTodo(event) {
         .catch((err) => console.log(err))
     getTodos();
 };
+
+
+//Kaarle
+//Patch checkbox values
+function patch(){
+    const patchId = 'chk' + serial;
+    let modStatusInput = document.getElementById(patchId).value;
+
+    fetch(`http://localhost:3000/api/list/${serial}`, {
+        method: 'PATCH',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ completed: modStatusInput })
+    })
+    .then(function (res) {
+        res.json();
+        getTodos();
+    })
+    .catch((err) => console.log(err))
+}
+
+function updateClock() {
+    var time = new Date()
+    var hr = time.getHours()
+    var min = time.getMinutes()
+    var sec = time.getSeconds()
+    var localDate = new Intl.DateTimeFormat('fi').format(time)
+
+    document.getElementById('time').innerHTML = localDate + ' / ' + hr + ':' + min + ':' + sec
+
+    setInterval(updateClock, 1000)
+  }
+  updateClock();

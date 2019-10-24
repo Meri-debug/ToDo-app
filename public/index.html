@@ -11,7 +11,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
-    <title>Academy JS Fall '19 To do -list</title>
+    <title>How to manage time</title>
 </head>
 
 <body>
@@ -23,7 +23,11 @@
         </a>
         <ul class="nav justify-content-end">
             <li class="nav-item">
+<<<<<<< HEAD
                 <a class="nav-link active text-info" href="#">Add to do</a>
+=======
+                <a class="nav-link active text-info" href="#home">Stay organized</a>
+>>>>>>> master
             </li>
             <li class="nav-item">
                 <a class="nav-link text-info " href="#list">My to do's</a>
@@ -60,20 +64,23 @@
 
                     <!-- Radio buttons -->
                     <div class="form-group">
-                         
+
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio1" name="radiobtn" value="high">
+                            <input type="radio" class="custom-control-input" id="customRadio1" name="radiobtn"
+                                value="high">
                             <label class="custom-control-label" for="customRadio1">High priority</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio2" name="radiobtn" value="medium">
+                            <input type="radio" class="custom-control-input" id="customRadio2" name="radiobtn"
+                                value="medium">
                             <label class="custom-control-label" for="customRadio2">Medium priority</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio3" name="radiobtn" value="low">
+                            <input type="radio" class="custom-control-input" id="customRadio3" name="radiobtn"
+                                value="low">
                             <label class="custom-control-label" for="customRadio3">Low priority</label>
-                        </div> 
-                        
+                        </div>
+
                     </div>
                 </form>
 
@@ -82,85 +89,97 @@
 
             </div>
             <div class="col col-lg-2">
-                <!-- <script type="text/javascript">
-                    var D = new Date();
-                    
-                    var month = d.getMonth() + 1;
-                    var day = d.getDate();
-                    var year = d.getFullYear();
-                    var date = month + "/" + day + "/" + year;
-                    
-                    document.write("Current date:" + date);
-                    </script> -->
+                <h3> CURRENT DATE / TIME:</H3>
+                <div id="time"></div>
             </div>
         </div>
+    </div>
 
-        <!-- This gives a white space -->
-        <div class="col-xs-12" style="height:50px;"></div>
+    <!-- This gives a white space -->
+    <div class="col-xs-12" style="height:50px;"></div>
 
+<<<<<<< HEAD
         <!-- List items -->
         <div class="container my-4 anchored" id="list">
+=======
+    <!-- List items -->
+    <div class="container my-4" id="list">
+        <hr>
+>>>>>>> master
 
-            <h5>My to do's</h5>
+        <h5>My to do's</h5>
 
+<<<<<<< HEAD
             <ul id="todoul" class="list-group list-group-flush"></ul>
             
             
             <!-- This gives a white space -->
             <div class="col-xs-12" style="height:50px;"></div>
+=======
+        <ul id="todoul" class="list-group list-group-flush"></ul>
+>>>>>>> master
 
-        </div>
-
-
-        <div id="todocarousel" class="carousel slide" data-ride="carousel">
-
-            <!-- Indicators -->
-            <ul class="carousel-indicators">
-                <li data-target="#todocarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#todocarousel" data-slide-to="1"></li>
-                <li data-target="#todocarousel" data-slide-to="2"></li>
-            </ul>
-
-            <!-- The slideshow -->
-            <div class="carousel-inner" style="max-width: 800px; margin: 0 auto">
-                <div class="carousel-item active">
-                    <img class="img-fluid" src="images/todo_carousel_01.jpg" alt="Manage time">
-                    <div class="carousel-caption d-none d-md-block text-dark">
-                        <h5>Until we can manage time, we can manage nothing else.</h5>
-                        <p>Peter Drucker</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="img-fluid" src="images/todo_carousel_02.jpg" alt="Time is money">
-                    <div class="carousel-caption d-none d-md-block text-dark">
-                        <h5>Being rich is having money; being wealthy is having time.</h5>
-                        <p>Margaret Bonnano</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="img-fluid" src="images/todo_carousel_03.jpg" alt="Get it done">
-                    <div class="carousel-caption d-none d-md-block text-dark">
-                        <h5>If you spend too much time thinking about a thing, you’ll never get it done.</h5>
-                        <p>Bruce Lee</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="carousel-control-prev" href="#todocarousel" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next text-dark" href="#todocarousel" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-
-        </div>
-
+        <hr>
         <!-- This gives a white space -->
         <div class="col-xs-12" style="height:50px;"></div>
 
+    </div>
+
+
+    <div id="todocarousel" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#todocarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#todocarousel" data-slide-to="1"></li>
+            <li data-target="#todocarousel" data-slide-to="2"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner" style="max-width: 800px; margin: 0 auto">
+            <div class="carousel-item active">
+                <img class="img-fluid" src="images/todo_carousel_01.jpg" alt="Manage time">
+                <div class="carousel-caption d-none d-md-block text-dark">
+                    <h5>Until we can manage time, we can manage nothing else.</h5>
+                    <p>Peter Drucker</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="img-fluid" src="images/todo_carousel_02.jpg" alt="Time is money">
+                <div class="carousel-caption d-none d-md-block text-dark">
+                    <h5>Being rich is having money; being wealthy is having time.</h5>
+                    <p>Margaret Bonnano</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="img-fluid" src="images/todo_carousel_03.jpg" alt="Get it done">
+                <div class="carousel-caption d-none d-md-block text-dark">
+                    <h5>If you spend too much time thinking about a thing, you’ll never get it done.</h5>
+                    <p>Bruce Lee</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#todocarousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next text-dark" href="#todocarousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+
+    <!-- This gives a white space -->
+    <div class="col-xs-12" style="height:50px;"></div>
+
+    <div class="container">
         <div class="row">
+<<<<<<< HEAD
             <div class="col-6 anchored" id="content">
+=======
+            <div class="col" id="content">
+>>>>>>> master
                 <h2>How to manage time</h2>
                 <p class="pt-lg-3 pl-lg-2">
                     <h5>1. Write It Down</h5>
@@ -200,27 +219,27 @@
                     productivity will be negatively affected. So be sure to actively manage stress in and out of the
                     work place.
                 </p>
-                </p>
 
 
-            </div>
-            <div class="col-6">
-                <!-- This gives a white space -->
-                <div class="col-xs-12" style="height:100px;"></div>
-                <img src="images/gone-fishing-sandra-harrison.jpg" class="img-fluid" alt="Responsive image">
-                <!-- This gives a white space -->
-                <div class="col-xs-12" style="height:100px;"></div>
-                <blockquote class="blockquote">
-                    <p class="mb-0">“My favorite things in life don’t cost any money. It’s really clear that the most
-                        precious resource we all have is time.”
-                    </p>
-                    <footer class="blockquote-footer">Steve Jobs
-                    </footer>
-                </blockquote>
-            </div>
-        </div>
     </div>
-    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <div class="col-6">
+        <!-- This gives a white space -->
+        <div class="col-xs-12" style="height:100px;"></div>
+        <img src="images/gone-fishing-sandra-harrison.jpg" class="img-fluid" alt="Responsive image">
+        <!-- This gives a white space -->
+        <div class="col-xs-12" style="height:100px;"></div>
+        <blockquote class="blockquote">
+            <p class="mb-0">“My favorite things in life don’t cost any money. It’s really clear that the most
+                precious resource we all have is time.”
+            </p>
+            <footer class="blockquote-footer">Steve Jobs
+            </footer>
+        </blockquote>
+    </div>
+    </div>
+    </div>
+    <!-- This gives a white space -->
+    <div class="col-xs-12" style="height:100px;"></div>
 
     <!-- This is the footer -->
     <footer id="sticky-footer" class="py-4 bg-light text-dark-50">
