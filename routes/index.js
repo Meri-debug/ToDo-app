@@ -3,29 +3,17 @@ var router = express.Router();
 const uuid = require('uuid');
 const fs = require('fs');
 
-var list = [
-  {
-    id: 1,
-    title: "Joo",
-    deadline: "21.11.2019",
-    completed: true,
-    priority: "high"
-  },
-  {
-    id: 2,
-    title: "Kaarlen Synttärit",
-    deadline: "11.09.1995",
-    completed: true,
-    priority: "ultra high"
-  },
-  {
-    id: 3,
-    title: "Plebeiji",
-    deadline: "1.11.2014",
-    completed: false,
-    priority: "low"
-  },
-]
+var list = [];
+
+try {
+  var updateList = fs.readFileSync(__dirname + '/../public/list.json');
+  list = JSON.parse(updateList);
+} catch (error) {
+  fs.writeFileSync(__dirname+'/../public/list.json', '[]', function(err) {
+    if (err) throw err;
+  });
+  throw error;
+}
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -33,15 +21,7 @@ router.get('/', function (req, res, next) {
 });
 // Get pyyntö, joka hakee listan
 router.get('/api/list', (req, res) => {
-  try {
-    var updateList = fs.readFileSync(__dirname + '/../public/list.json');
-    list = JSON.parse(updateList);
-  } catch (error) {
-    list = [];
-    res.send('Could not find any entries on initial load')
-  }
-  res.send(list);
-  res.status(200).send();
+  res.status(200).json(list);
 })
 
 
@@ -61,6 +41,7 @@ router.delete('/api/list/:id', (req, res) => {
       list.splice(i, 1);
       res.json({ msg: "deleted: " + req.params.id })
       saveToList();
+      console.log(list);
       return;
     }
   }
@@ -68,8 +49,6 @@ router.delete('/api/list/:id', (req, res) => {
 })
 function saveToList() {
   fs.writeFileSync(__dirname+'/../public/list.json', JSON.stringify(list, null, 2), () => {
-    console.log("list saved")
-    console.log(list)
   })
 }
 
@@ -78,10 +57,11 @@ router.post('/api/list', function(req, res, next) {
   const newitem = {
     id: uuid(),
     title: req.body.title,
-    deadline: req.body.time,
+    deadline: req.body.deadline,
     completed: req.body.completed,
     priority: req.body.priority
   };
+
   list.push(newitem);
   console.log(list);
   
@@ -95,18 +75,28 @@ router.post('/api/list', function(req, res, next) {
 
 router.put('/api/list/:id', function(req, res, next) {
   const id = req.params.id;
+
   let item = list.filter(item => {
     return item.id == id;
   })[0];
+
   const index = list.indexOf(item);
+
   const keys = Object.keys(req.body);
 
   keys.forEach(key => {
     item[key] = req.body[key];
   });
+  
   list[index] = item;
+
+  const jsonList = JSON.stringify(list, null, 2);
+  fs.writeFileSync(__dirname+'/../public/list.json', jsonList, function(err) {
+    if (err) throw err;
+  });
+
   res.status(200);
-  res.json(list[index]);
+  res.json(list);
 });
 
 module.exports = router;
