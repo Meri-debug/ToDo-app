@@ -11,26 +11,39 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
-    <title>To do</title>
+    <title>Academy JS Fall '19 To do -list</title>
 </head>
 
 <body>
-    <!-- Header -->
+
+    <!-- Navigation -->
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="images/todo_icon.png" width="50" height="60" class="d-inline-block align-top" alt="">
-            to do
+            <img src="images/todo_modern.png" width="50" height="60" alt="">
         </a>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link active text-info" href="#home">Add to do</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-info" href="#list">My to do's</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-info" href="#content">Time management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-info" href="#footer">Footer</a>
+            </li>
+        </ul>
     </nav>
 
     <!-- This gives a white space -->
-    <div class="col-xs-12" style="height:50px;"></div>
+    <div class="col-xs-12" style="height:100px;"></div>
 
     <!-- Main content -->
-    <div class="container">
+    <div class="container" id="home">
         <div class="row justify-content-md-center">
             <div class="col col-lg-2">
-                <!-- 1 of 3 -->
             </div>
 
             <div class="col">
@@ -72,7 +85,16 @@
 
             </div>
             <div class="col col-lg-2">
-                <!-- 3 of 3 -->
+                <!-- <script type="text/javascript">
+                    var D = new Date();
+                    
+                    var month = d.getMonth() + 1;
+                    var day = d.getDate();
+                    var year = d.getFullYear();
+                    var date = month + "/" + day + "/" + year;
+                    
+                    document.write("Current date:" + date);
+                    </script> -->
             </div>
         </div>
 
@@ -80,13 +102,14 @@
         <div class="col-xs-12" style="height:50px;"></div>
 
         <!-- List items -->
-        <div class="container my-4">
+        <div class="container my-4" id="list">
             <hr>
 
-            <p class="font-weight-bold">My to do's</p>
+            <h5>My to do's</h5>
 
             <ul id="todoul" class="list-group list-group-flush"></ul>
-
+            
+            <hr>
             <!-- This gives a white space -->
             <div class="col-xs-12" style="height:50px;"></div>
 
@@ -131,7 +154,7 @@
             <a class="carousel-control-prev" href="#todocarousel" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </a>
-            <a class="carousel-control-next" href="#todocarousel" data-slide="next">
+            <a class="carousel-control-next text-dark" href="#todocarousel" data-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </a>
 
@@ -140,17 +163,86 @@
         <!-- This gives a white space -->
         <div class="col-xs-12" style="height:50px;"></div>
 
+        <div class="row">
+            <div class="col-6" id="content">
+                <h2>How to manage time</h2>
+                <p class="pt-lg-3 pl-lg-2">
+                    <h5>1. Write It Down</h5>
+                    If you store your goals, deadlines, and projects in your head, along with one million other
+                    thoughts, you will inevitably forget something important. So if your mind is cluttered and can’t
+                    seem to settle down, write down to-do’s, or find an app that will help you stay organized.
+                </p>
+                <p class="pt-lg-3 pl-lg-2">
+                    <h5>2. Choose a Prioritization Strategy</h5>
+                    There are many different methods of prioritizing tasks – from grocery lists, to kanban, to more
+                    complex team productivity tools. Think about the complexity of the tasks you are trying to manage.
+                </p>
+                <p class="pt-lg-3 pl-lg-2">
+                    <h5>3. Block Out Time For Regularly Occurring Tasks</h5>
+                    Whether it’s scheduling social media posts or creating an agenda for a weekly meeting, we all have a
+                    set list of tasks that we must complete, without fail, each week. So set aside a consistent block of
+                    time each week, and mark it on your calendar, so everyone knows that is your time.
+                </p>
+                <p class="pt-lg-3 pl-lg-2">
+                    <h5>4. If It Will Take Less Than 15 Minutes, Do It Immediately</h5>
+                    Not all tasks were created equal. Many actions can be completed in a matter of minutes of seconds,
+                    whereas some projects will take days, weeks, or even months. If a to-do comes your way and you know
+                    it will take less than 15 minutes, complete it immediately. Those little tasks build up, so knocking
+                    them out as they come will clear space in your mind to focus on larger tasks at hand.
+                </p>
+                <p class="pt-lg-3 pl-lg-2">
+                    <h5>5. Put Away Your Cell Phone</h5>
+                    If you find you’re using an excessive amount of time sending non-work related text messages and
+                    checking Instagram, it might be worthwhile to store your phone in a drawer. The temptation can be
+                    easily conquered when said temptation is out of sight, out of mind.
+                </p>
+                <p class="pt-lg-3 pl-lg-2">
+                    <h5>6. Manage Your Stress</h5>
+                    Stress in the workplace often occurs when we accept more work than we can reasonably manage (or more
+                    work than we think we can reasonably manage). When you pile all of your personal stress on top of
+                    that, your body is physically affected. You will become tired, you will lose motivation, and your
+                    productivity will be negatively affected. So be sure to actively manage stress in and out of the
+                    work place.
+                </p>
+                </p>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-        <script src="script.js"></script>
+
+            </div>
+            <div class="col-6">
+                <!-- This gives a white space -->
+                <div class="col-xs-12" style="height:100px;"></div>
+                <img src="images/gone-fishing-sandra-harrison.jpg" class="img-fluid" alt="Responsive image">
+                <!-- This gives a white space -->
+                <div class="col-xs-12" style="height:100px;"></div>
+                <blockquote class="blockquote">
+                    <p class="mb-0">“My favorite things in life don’t cost any money. It’s really clear that the most
+                        precious resource we all have is time.”
+                    </p>
+                    <footer class="blockquote-footer">Steve Jobs
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
+    <!-- This is the footer -->
+    <footer id="sticky-footer" class="py-4 bg-light text-dark-50">
+        <div class="container text-center" id="footer">
+            <small>Copyright &copy; Team Awesome</small>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
