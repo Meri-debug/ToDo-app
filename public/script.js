@@ -201,7 +201,6 @@ function modTodo(event) {
 // GET all todos on page load
 getTodos();
 
-//Kaarle
 function delTodo(event) {
     const id = event.substring(3);
 
@@ -214,6 +213,7 @@ function delTodo(event) {
         .catch((err) => console.log(err))
     getTodos();
 };
+
 
 //Kaarle
 //Patch checkbox values
@@ -232,3 +232,16 @@ function patch(){
     })
     .catch((err) => console.log(err))
 }
+
+function updateClock() {
+    var time = new Date()
+    var hr = time.getHours()
+    var min = time.getMinutes()
+    var sec = time.getSeconds()
+    var localDate = new Intl.DateTimeFormat('fi').format(time)
+
+    document.getElementById('time').innerHTML = localDate + ' / ' + hr + ':' + min + ':' + sec
+
+    setInterval(updateClock, 1000)
+  }
+  updateClock();
