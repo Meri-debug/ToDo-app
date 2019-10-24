@@ -1,23 +1,9 @@
 [
   {
-    "id": "d6210af3-5966-4700-b584-deede5e4038e",
-    "title": "sadasd",
-    "deadline": "2019-10-18",
+    "id": "6b7cc721-cc78-4fa8-b128-c32766444f61",
+    "title": "sdfsdf",
+    "deadline": "2019-10-25",
     "completed": "on",
     "priority": "high"
-  },
-  {
-    "id": "50fad841-f4c7-4771-a0f9-e20a6e0b398b",
-    "title": "qweqe",
-    "deadline": "2019-10-17",
-    "completed": "on",
-    "priority": "high"
-  },
-  {
-    "id": "9a524df5-07f4-4a87-8888-cca930aa224a",
-    "title": "qweqwe",
-    "deadline": "2019-10-17",
-    "completed": "on",
-    "priority": "low"
   }
 ]
