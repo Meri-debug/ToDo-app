@@ -23,16 +23,13 @@
         </a>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link active text-info" href="#home">Stay organized</a>
+                <a class="nav-link active text-info" href="#">Add to do</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-info" href="#list">My to do's</a>
+                <a class="nav-link text-info " href="#list">My to do's</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-info" href="#content">Time management</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-info" href="#footer">Footer</a>
+                <a class="nav-link text-info " href="#content">Time management</a>
             </li>
         </ul>
     </nav>
@@ -52,7 +49,7 @@
                     <!-- Input field -->
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Go to gym" id="titleinput">
+                            <input type="text" class="form-control" placeholder="e.g. Resolve git conflicts" id="titleinput">
                         </div>
                         <!-- Input field with date picker -->
                         <div class="col">
@@ -88,23 +85,26 @@
 
             </div>
             <div class="col col-lg-2">
-                <h3> CURRENT DATE / TIME:</H3>
+                <h3> CURRENT DATE:</H3>
                 <div id="time"></div>
             </div>
         </div>
     </div>
 
-    <!-- This gives a white space -->
-    <div class="col-xs-12" style="height:50px;"></div>
+    <div>
+        <!-- This gives a white space -->
+        <div class="col-xs-12" style="height:50px;"></div>
 
-    <!-- List items -->
-    <div class="container my-4" id="list">
-        <hr>
+        <!-- List items -->
+        <div class="container my-4 anchored" id="list">
 
-        <h5>My to do's</h5>
+            <h5>My to do's</h5>
 
-        <ul id="todoul" class="list-group list-group-flush"></ul>
+            <ul id="todoul" class="list-group list-group-flush"></ul>
+            
+            
 
+        </div>
         <hr>
         <!-- This gives a white space -->
         <div class="col-xs-12" style="height:50px;"></div>
@@ -161,7 +161,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col" id="content">
+            <div class="col-6 anchored" id="content">
                 <h2>How to manage time</h2>
                 <p class="pt-lg-3 pl-lg-2">
                     <h5>1. Write It Down</h5>
