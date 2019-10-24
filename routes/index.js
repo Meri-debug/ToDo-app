@@ -52,7 +52,7 @@ function saveToList() {
   })
 }
 
-
+//Kaarle
 router.post('/api/list', function(req, res, next) {
   const newitem = {
     id: uuid(),
@@ -73,7 +73,35 @@ router.post('/api/list', function(req, res, next) {
   res.json(list);
 })
 
+//Kaarle
 router.put('/api/list/:id', function(req, res, next) {
+  const id = req.params.id;
+
+  let item = list.filter(item => {
+    return item.id == id;
+  })[0];
+
+  const index = list.indexOf(item);
+
+  const keys = Object.keys(req.body);
+
+  keys.forEach(key => {
+    item[key] = req.body[key];
+  });
+  
+  list[index] = item;
+
+  const jsonList = JSON.stringify(list, null, 2);
+  fs.writeFileSync(__dirname+'/../public/list.json', jsonList, function(err) {
+    if (err) throw err;
+  });
+
+  res.status(200);
+  res.json(list);
+});
+
+//Kaarle / Checkbox's patch request handling, almost the same as PUT handling
+router.patch('/api/list/:id', function(req, res, next) {
   const id = req.params.id;
 
   let item = list.filter(item => {
