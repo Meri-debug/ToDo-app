@@ -279,13 +279,11 @@ function patch(){
 
 function updateClock() {
     var time = new Date()
-    var hr = time.getHours()
-    var min = time.getMinutes()
-    var sec = time.getSeconds()
+    // var hr = time.getHours()
+    // var min = time.getMinutes()
+    // var sec = time.getSeconds()
     var localDate = new Intl.DateTimeFormat('fi').format(time)
 
-    document.getElementById('time').innerHTML = localDate + ' / ' + hr + ':' + min + ':' + sec
-
-    setInterval(updateClock, 1000)
+    document.getElementById('time').innerHTML = localDate
   }
   updateClock();
