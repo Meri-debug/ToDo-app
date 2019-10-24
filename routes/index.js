@@ -9,6 +9,9 @@ try {
   var updateList = fs.readFileSync(__dirname + '/../public/list.json');
   list = JSON.parse(updateList);
 } catch (error) {
+  fs.writeFileSync(__dirname+'/../public/list.json', '[]', function(err) {
+    if (err) throw err;
+  });
   throw error;
 }
 
@@ -72,18 +75,38 @@ router.post('/api/list', function(req, res, next) {
 
 router.put('/api/list/:id', function(req, res, next) {
   const id = req.params.id;
+
   let item = list.filter(item => {
     return item.id == id;
   })[0];
+
+  /* for (let i = 0; i < list.length; i++) {
+    if (list[i].id == req.params.id) {
+      console.log(list[i]);
+      return;
+    }
+  } */
+
+  console.log(item);
+  console.log(req.body.priority);
+
   const index = list.indexOf(item);
+
   const keys = Object.keys(req.body);
 
   keys.forEach(key => {
     item[key] = req.body[key];
   });
+  
   list[index] = item;
+
+  const jsonList = JSON.stringify(list, null, 2);
+  fs.writeFileSync(__dirname+'/../public/list.json', jsonList, function(err) {
+    if (err) throw err;
+  });
+
   res.status(200);
-  res.json(list[index]);
+  res.json(list);
 });
 
 module.exports = router;
