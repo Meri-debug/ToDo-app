@@ -10,13 +10,14 @@ let modTitleInput = document.getElementById("modtitleinput");
 let modStatusInput = document.getElementById("status");
 let modRadioInput = document.querySelector('input[name="radiobtn"]')
 let modDateInput = document.getElementById("moddateinput");
+let checkStatusInput;
 
 let serial;
 
 // postTodo function on click
 addButton.addEventListener("click", postTodo);
 
-//Kaarle || Checkbox passaa ja päivittää oman id:nsä serialiin
+//Kaarle || Destructuring - Checkbox passaa ja päivittää oman id:nsä serialiin
 function checkbox(event){
     updateSerial(event);
     patch();
@@ -25,7 +26,6 @@ function checkbox(event){
 function updateSerial(event){
     const clicked_id = event.substring(3);
     serial = clicked_id;
-    console.log(serial);
 }
 
 function on(event) {
@@ -141,6 +141,8 @@ function getTodos() {
 
                 if (status === "on") {
                     document.getElementById("chk" + todoId).checked = true;
+                } else {
+                    document.getElementById("chk" + todoId).checked = false;
                 }
             });
         });
@@ -209,7 +211,6 @@ function modTodo(event) {
         body: JSON.stringify(newToDo)
     })
         .then(function (res) {
-            console.log(res);
             res.json();
             off();
             getTodos();
@@ -263,12 +264,12 @@ function delTodo(event) {
 //Patch checkbox values
 function patch(){
     const patchId = 'chk' + serial;
-    let modStatusInput = document.getElementById(patchId).value;
+    checkStatusInput = document.getElementById(patchId).value;
 
     fetch(`http://localhost:3000/api/list/${serial}`, {
         method: 'PATCH',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ completed: modStatusInput })
+        body: JSON.stringify({ completed: checkStatusInput })
     })
     .then(function (res) {
         res.json();
