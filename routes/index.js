@@ -1,3 +1,5 @@
+// By Lauri and Kaarle
+
 var express = require('express');
 var router = express.Router();
 const uuid = require('uuid');
@@ -15,6 +17,7 @@ try {
   throw error;
 }
 
+// GET by Lauri
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
@@ -35,6 +38,7 @@ router.get('/api/list/:id', (req, res) => {
   }
 });
 
+// DELETE by Lauri
 router.delete('/api/list/:id', (req, res) => {
   for (let i = 0; i < list.length; i++) {
     if (list[i].id == req.params.id) {
@@ -52,7 +56,7 @@ function saveToList() {
   })
 }
 
-//Kaarle
+// POST by Kaarle & Lauri
 router.post('/api/list', function(req, res, next) {
   const newitem = {
     id: uuid(),
@@ -73,7 +77,7 @@ router.post('/api/list', function(req, res, next) {
   res.json(list);
 })
 
-//Kaarle
+// PUT by Kaarle
 router.put('/api/list/:id', function(req, res, next) {
   const id = req.params.id;
 
