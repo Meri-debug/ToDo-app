@@ -1,3 +1,5 @@
+// By Max and Kaarle
+
 const toDoUl = document.getElementById("todoul");
 
 let titleInput = document.getElementById("titleinput");
@@ -31,14 +33,14 @@ function updateSerial(event){
 function on(event) {
     updateSerial(event);
     document.querySelector(".overlay").style.display = "block";
-
+    console.log(event)
 }
 
 function off() {
     document.querySelector(".overlay").style.display = "none";
 }
 
-// Max, Kaarle & muita ollut mukana? 
+// Max & Kaarle 
 // GET all the todo items from the server
 function getTodos() {
     $('#todoul').empty();
@@ -120,24 +122,10 @@ function getTodos() {
                                 </div>
                             </div>
                         </div>
-
-                        
-                        
-                        
-
                     </div>
                 `
 
                 toDoUl.appendChild(node);
-
-                // $('#todoId').change(function(){
-                //     if($(this).is(":checked")) {
-                //         console.log("pöö")
-                //         $('.changeme').addClass('checked');
-                //     } else {
-                //         $('.changeme').removeClass('checked');
-                //     }
-                // });
 
                 if (status === "on") {
                     document.getElementById("chk" + todoId).checked = true;
@@ -149,9 +137,9 @@ function getTodos() {
 
 }
 
+// By Max
 // POST a new todo to server
 function postTodo() {
-    // let radioInput = document.querySelector('input[name="radiobtn"]:checked')
     let title = titleInput.value;
     let deadLine = dateInput.value;
     let radio = document.querySelector('input[name="radiobtn"]:checked').value;
@@ -221,31 +209,7 @@ function modTodo(event) {
 // GET all todos on page load
 getTodos();
 
-// This is scroll top button
-
-/*
-$(document).ready(function(){
-    $(window).scroll(function () {
-           if ($(this).scrollTop() > 50) {
-               $('#back-to-top').fadeIn();
-           } else {
-               $('#back-to-top').fadeOut();
-           }
-       });
-       // scroll body to 0px on click
-       $('#back-to-top').click(function () {
-           $('#back-to-top').tooltip('hide');
-           $('body,html').animate({
-               scrollTop: 0
-           }, 800);
-           return false;
-       });
-       
-       $('#back-to-top').tooltip('show');
-
-});
-*/
-
+// By Kaarle
 function delTodo(event) {
     const id = event.substring(3);
 
@@ -278,11 +242,9 @@ function patch(){
     .catch((err) => console.log(err))
 }
 
+// By Kaarle (implemented by Meri)
 function updateClock() {
     var time = new Date()
-    // var hr = time.getHours()
-    // var min = time.getMinutes()
-    // var sec = time.getSeconds()
     var localDate = new Intl.DateTimeFormat('fi').format(time)
 
     document.getElementById('time').innerHTML = localDate

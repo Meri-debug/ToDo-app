@@ -1,3 +1,5 @@
+// By our friends at Express.js
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
